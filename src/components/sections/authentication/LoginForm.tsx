@@ -1,14 +1,11 @@
 import { Button, Grid, IconButton, InputAdornment, Link, TextField } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { useBreakpoints } from 'providers/useBreakpoints';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { up } = useBreakpoints();
-  const upSM = up('sm');
 
   const handleClick = () => {
     navigate('/');
@@ -20,16 +17,22 @@ const LoginForm = () => {
         <Grid item xs={12}>
           <TextField
             fullWidth
-            size={upSM ? 'medium' : 'small'}
+            size="medium"
             name="email"
             label="Username or email"
             variant="outlined"
+            InputLabelProps={{
+              sx: { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsive label size
+            }}
+            sx={{
+              '& .MuiInputBase-input': { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsive input size
+            }}
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
             fullWidth
-            size={upSM ? 'medium' : 'small'}
+            size="medium"
             name="password"
             label="Password"
             type={showPassword ? 'text' : 'password'}
@@ -42,6 +45,12 @@ const LoginForm = () => {
                   </IconButton>
                 </InputAdornment>
               ),
+            }}
+            InputLabelProps={{
+              sx: { fontSize: { xs: '1rem', sm: '1.25rem' } },
+            }}
+            sx={{
+              '& .MuiInputBase-input': { fontSize: { xs: '1rem', sm: '1.25rem' } },
             }}
           />
         </Grid>
@@ -57,12 +66,15 @@ const LoginForm = () => {
 
       <Button
         fullWidth
-        size={upSM ? 'large' : 'medium'}
+        size="large"
         type="submit"
         variant="contained"
         color="primary"
         onClick={handleClick}
-        sx={{ backgroundColor: '#76C893' }} // Sesuai dengan warna tombol pada gambar
+        sx={{
+          backgroundColor: '#76C893',
+          fontSize: { xs: '1rem', sm: '1.25rem' }, // Responsive font size
+        }}
       >
         Sign In
       </Button>

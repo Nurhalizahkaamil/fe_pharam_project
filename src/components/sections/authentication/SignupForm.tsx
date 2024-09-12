@@ -1,4 +1,4 @@
-import { Button, Grid, IconButton, InputAdornment, TextField } from '@mui/material';
+import { Button, Grid, IconButton, InputAdornment, TextField, Link } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useBreakpoints } from 'providers/useBreakpoints';
 import { useState } from 'react';
@@ -10,6 +10,7 @@ const SignupForm = () => {
   const navigate = useNavigate();
   const { up } = useBreakpoints();
   const upSM = up('sm');
+
   const handleClick = () => {
     navigate('/');
   };
@@ -21,8 +22,30 @@ const SignupForm = () => {
           <TextField
             fullWidth
             size={upSM ? 'medium' : 'small'}
+            name="username"
+            label="Username"
+            variant="outlined"
+            InputLabelProps={{
+              sx: { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsif ukuran label
+            }}
+            sx={{
+              '& .MuiInputBase-input': { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsif ukuran input
+            }}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            size={upSM ? 'medium' : 'small'}
             name="email"
             label="Email address"
+            variant="outlined"
+            InputLabelProps={{
+              sx: { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsif ukuran label
+            }}
+            sx={{
+              '& .MuiInputBase-input': { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsif ukuran input
+            }}
           />
         </Grid>
         <Grid item xs={12}>
@@ -32,7 +55,7 @@ const SignupForm = () => {
             name="password"
             label="Password"
             type={showPassword ? 'text' : 'password'}
-            sx={{ size: { xs: 'small', sm: 'medium' } }}
+            variant="outlined"
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -41,6 +64,12 @@ const SignupForm = () => {
                   </IconButton>
                 </InputAdornment>
               ),
+            }}
+            InputLabelProps={{
+              sx: { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsif ukuran label
+            }}
+            sx={{
+              '& .MuiInputBase-input': { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsif ukuran input
             }}
           />
         </Grid>
@@ -51,6 +80,7 @@ const SignupForm = () => {
             name="confirmPassword"
             label="Confirm Password"
             type={showConfirmPassword ? 'text' : 'password'}
+            variant="outlined"
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -65,9 +95,24 @@ const SignupForm = () => {
                 </InputAdornment>
               ),
             }}
+            InputLabelProps={{
+              sx: { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsif ukuran label
+            }}
+            sx={{
+              '& .MuiInputBase-input': { fontSize: { xs: '1rem', sm: '1.25rem' } }, // Responsif ukuran input
+            }}
           />
         </Grid>
       </Grid>
+
+      <Grid container justifyContent="flex-end" sx={{ my: 3 }}>
+        <Grid item>
+          <Link href="/authentication/forget-password" variant="subtitle2" underline="hover">
+            Forgot password?
+          </Link>
+        </Grid>
+      </Grid>
+
       <Button
         fullWidth
         size={upSM ? 'large' : 'medium'}
@@ -75,6 +120,10 @@ const SignupForm = () => {
         variant="contained"
         color="primary"
         onClick={handleClick}
+        sx={{
+          backgroundColor: '#76C893',
+          fontSize: { xs: '1rem', sm: '1.25rem' }, // Responsif ukuran font
+        }}
       >
         Sign Up
       </Button>

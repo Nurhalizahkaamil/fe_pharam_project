@@ -11,14 +11,13 @@ import {
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import LoginForm from 'components/sections/authentication/LoginForm';
-import IconKey from 'assets/iconkey.png'; // Tambahkan path gambar iconkey.png
+import IconKey from 'assets/iconkey.png';
 
-// Definisikan warna dan ukuran font
 const FONT_SIZES = {
-  header: '4rem',
-  subheader: '2.5rem',
-  body: '1.5rem',
-  link: '1.5rem',
+  header: { xs: '2.5rem', sm: '3rem', md: '4rem' },
+  subheader: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+  body: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
+  link: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
 };
 
 const COLORS = {
@@ -35,10 +34,8 @@ const LoginPage = () => {
         width: 1,
         height: '100vh',
         display: 'flex',
-        position: 'relative',
-        zIndex: 100,
-        // Tambahkan properti gradien background
-        background: 'linear-gradient(to bottom, #9AFEE0 50%, #042BF9 100%)', // Ubah sesuai dengan preferensi warna Anda
+        flexDirection: { xs: 'column', md: 'row' },
+        background: 'linear-gradient(to bottom, #9AFEE0 50%, #042BF9 100%)',
       }}
     >
       {/* Left Side with Illustration */}
@@ -48,10 +45,12 @@ const LoginPage = () => {
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
-          paddingLeft: '50px',
+          paddingLeft: { xs: '10px', md: '20px' },
+          paddingRight: { xs: '10px', md: '20px' },
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
-        <Grid item xs={10} sm={8}>
+        <Grid item xs={12} md={8}>
           <Typography
             variant="h1"
             sx={{
@@ -115,7 +114,7 @@ const LoginPage = () => {
               Sign Up here!
             </Link>
           </Typography>
-          <img src={IconKey} alt="icon-key" width="700" />
+          <img src={IconKey} alt="icon-key" width="100%" style={{ maxWidth: '100%' }} />
         </Grid>
       </Grid>
 
@@ -126,13 +125,14 @@ const LoginPage = () => {
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
+          padding: { xs: '20px', md: '50px' },
         }}
       >
-        <Grid item xs={12} sm={8}>
-          <Container maxWidth="xl">
+        <Grid item xs={12} md={8}>
+          <Container maxWidth="sm">
             <Card
               sx={{
-                p: { xs: 20, sm: 20, md: 20, lg: 25 },
+                p: { xs: 3, sm: 7.5 },
                 width: 1,
               }}
             >

@@ -1,12 +1,23 @@
-import { Box, Card, Container, Link, Typography, Grid } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  Container,
+  Divider,
+  Link,
+  Stack,
+  Typography,
+  Grid,
+} from '@mui/material';
+import IconifyIcon from 'components/base/IconifyIcon';
 import IconKey from 'assets/iconkey.png';
 import SignupForm from 'components/sections/authentication/SignupForm';
 
 const FONT_SIZES = {
-  header: '4rem',
-  subheader: '2.5rem',
-  body: '1.5rem',
-  link: '1.5rem',
+  header: { xs: '2.5rem', sm: '3rem', md: '4rem' },
+  subheader: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+  body: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
+  link: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
 };
 
 const COLORS = {
@@ -23,10 +34,8 @@ const SignupPage = () => {
         width: 1,
         height: '100vh',
         display: 'flex',
-        position: 'relative',
-        zIndex: 100,
-        // Tambahkan properti gradien background
-        background: 'linear-gradient(to bottom, #9AFEE0 50%, #042BF9 100%)', // Ubah sesuai dengan preferensi warna Anda
+        flexDirection: { xs: 'column', md: 'row' },
+        background: 'linear-gradient(to bottom, #9AFEE0 50%, #042BF9 100%)',
       }}
     >
       {/* Left Side with Illustration */}
@@ -36,10 +45,12 @@ const SignupPage = () => {
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
-          paddingLeft: '50px',
+          paddingLeft: { xs: '10px', md: '20px' },
+          paddingRight: { xs: '10px', md: '20px' },
+          textAlign: { xs: 'center', md: 'left' },
         }}
       >
-        <Grid item xs={10} sm={8}>
+        <Grid item xs={12} md={8}>
           <Typography
             variant="h1"
             sx={{
@@ -74,7 +85,7 @@ const SignupPage = () => {
               color: COLORS.secondary,
             }}
           >
-            If you don't have an account register
+            If you have an account
           </Typography>
           <Typography
             variant="body1"
@@ -100,11 +111,10 @@ const SignupPage = () => {
                 },
               }}
             >
-              Sign In here!
+              Sign in here!
             </Link>
           </Typography>
-          <img src={IconKey} alt="icon-key" width="700" />
-          {/* Gambar iconkey.png diterapkan di sini */}
+          <img src={IconKey} alt="icon-key" width="100%" style={{ maxWidth: '100%' }} />
         </Grid>
       </Grid>
 
@@ -115,13 +125,14 @@ const SignupPage = () => {
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
+          padding: { xs: '20px', md: '50px' },
         }}
       >
-        <Grid item xs={12} sm={8}>
-          <Container maxWidth="xl">
+        <Grid item xs={12} md={8}>
+          <Container maxWidth="sm">
             <Card
               sx={{
-                p: { xs: 20, sm: 20, md: 20, lg: 25 },
+                p: { xs: 3, sm: 7 },
                 width: 1,
               }}
             >
@@ -149,10 +160,32 @@ const SignupPage = () => {
                   color: COLORS.textPrimary,
                 }}
               >
-                Sign Up
+                Sign In
               </Typography>
 
-              <SignupForm />
+              <SignupForm/>
+
+              <Divider sx={{ my: 5 }}>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  OR
+                </Typography>
+              </Divider>
+              <Stack direction="row" spacing={{ xs: 1, sm: 2 }}>
+                <Button fullWidth size="large" color="neutral" variant="outlined" sx={{ p: 1 }}>
+                  <IconifyIcon icon="eva:google-fill" color="blue" sx={{ mr: 1 }} />
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontFamily: 'Roboto, sans-serif',
+                      fontWeight: 'normal',
+                      fontSize: FONT_SIZES.body,
+                      color: COLORS.textPrimary,
+                    }}
+                  >
+                    Sign in with Google
+                  </Typography>
+                </Button>
+              </Stack>
             </Card>
           </Container>
         </Grid>

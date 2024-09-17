@@ -3,9 +3,9 @@ import IconifyIcon from 'components/base/IconifyIcon';
 
 /* ----------------  Links Data  ------------------------------ */
 const data = [
-  { href: '#!', title: 'Themewagon', key: 'team' },
+  { href: '#!', title: 'System Inventory', key: 'team' },
   { href: '#!', title: 'About Us', key: 'about' },
-  { href: '#!', title: 'Blog ', key: 'blog' },
+  { href: '#!', title: 'Contact ', key: 'blog' },
   { href: '#!', title: 'License ', key: 'license' },
 ];
 /* ------------------------------------------------------------ */

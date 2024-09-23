@@ -19,6 +19,9 @@ export enum linkEnum {
   Signup = 'sign-up',
   ForgetPassword = 'forget-password',
   ResetPassword = 'reset-password',
+  Categories = 'Categories',
+  Units = 'Units',
+  Products = 'Products',
 }
 
 export interface MenuLinkType {
@@ -27,7 +30,9 @@ export interface MenuLinkType {
   link: string;
   icon?: (props: SvgIconProps) => JSX.Element;
   available: boolean;
+  items?: MenuLinkType[]; // Menambahkan properti items dengan tipe array MenuLinkType
 }
+
 export const menuLinks: MenuLinkType[] = [
   {
     id: 1,
@@ -37,49 +42,72 @@ export const menuLinks: MenuLinkType[] = [
     available: true,
   },
   {
-    id: 2,
+    id: 8,
     title: linkEnum.MasterProduct,
     link: '#!',
     icon: TransferIcon,
-    available: false,
+    available: true,
+    items: [
+      {
+        id: 9,
+        title: linkEnum.Units,
+        link: '#!',
+        icon: TransferIcon,
+        available: true,
+      },
+      {
+        id: 10,
+        title: linkEnum.Categories,
+        link: '#!',
+        icon: TransferIcon,
+        available: true,
+      },
+      {
+        id: 11,
+        title: linkEnum.Products,
+        link: '#!',
+        icon: TransferIcon,
+        available: true,
+      },
+    ],
   },
   {
-    id: 3,
+    id: 2,
     title: linkEnum.MasterInventory,
     link: '#!',
     icon: UserIcon,
     available: false,
   },
   {
-    id: 4,
+    id: 3,
     title: linkEnum.Supplier,
     link: '#!',
     icon: InvestIcon,
     available: false,
   },
   {
-    id: 5,
+    id: 4,
     title: linkEnum.Report,
     link: '#!',
     icon: CreditCardIcon,
     available: false,
   },
   {
-    id: 6,
+    id: 5,
     title: linkEnum.Profile,
     link: '#!',
     icon: LoanIcon,
     available: false,
   },
   {
-    id: 7,
+    id: 6,
     title: linkEnum.Login,
     link: '/authentication/login',
     icon: SignInIcon,
     available: true,
   },
   {
-    id: 8,
+    id: 7,
     title: linkEnum.Signup,
     link: '/authentication/sign-up',
     icon: SignUpIcon,

@@ -1,135 +1,99 @@
-import { Card, List, ListItem, Stack, Typography } from '@mui/material';
-import CardContainer from 'components/common/CardContainter';
-import CoinIcon from 'components/icons/card-icons/CoinIcon';
-import CreditCardIcon from 'components/icons/card-icons/CreditCardIcon';
-import PaypalIcon from 'components/icons/card-icons/PaypalIcon';
-import { currencyFormat } from 'helpers/utils';
+import { Box, Stack, Typography } from '@mui/material';
+import { Fragment } from 'react/jsx-runtime';
 
-/* ---------------------------- Transaction Data ---------------------------- */
-const transactions = [
+/* ---------------------------- Card Data ----------------------------- */
+interface DataCard {
+  title: string;
+  value: string;
+  subtitle: string;
+  backgroundColor: string;
+}
+
+const cardData: DataCard[] = [
   {
-    id: 1,
-    icon: CreditCardIcon,
-    bgcolor: 'warning.light',
-    title: 'Deposit from my Card',
-    type: 'debit',
-    date: '25 January 2021',
-    amount: 500,
-    amountColor: 'error.main',
+    title: 'Product Entry',
+    value: '9460.00',
+    subtitle: 'Today',
+    backgroundColor: '#DDF4F8',
   },
   {
-    id: 2,
-    icon: PaypalIcon,
-    bgcolor: 'neutral.light',
-    title: 'Deposit Paypal',
-    type: 'credit',
-    date: '25 January 2021',
-    amount: 500,
-    amountColor: 'success.main',
+    title: 'Outbound Product',
+    value: '9460.00',
+    subtitle: 'Today',
+    backgroundColor: '#DDF4F8',
   },
   {
-    id: 3,
-    icon: CoinIcon,
-    bgcolor: 'success.lighter',
-    title: 'Jemi Wilson',
-    type: 'credit',
-    date: '25 January 2021',
-    amount: 500,
-    amountColor: 'success.main',
+    title: 'Available Stock',
+    value: '9460.00',
+    subtitle: 'Today',
+    backgroundColor: '#DDF4F8',
+  },
+  {
+    title: 'Supplier Data',
+    value: '9460.00',
+    subtitle: 'Today',
+    backgroundColor: '#DDF4F8',
+  },
+  {
+    title: 'Exp Product Data',
+    value: '9460.00',
+    subtitle: 'Today',
+    backgroundColor: '#DDF4F8',
   },
 ];
-/* -------------------------------------------------------------------------- */
 
-const RecentTransactions = () => {
+const DashboardCards = () => {
   return (
-    <CardContainer title="Recent Transactions">
-      <Card sx={{ p: { xs: 0.5, xl: 1 } }}>
-        <List disablePadding sx={{ color: 'primary.main', '& > *:not(:last-child)': { mb: 2.5 } }}>
-          {transactions.map(
-            ({ id, icon: IconComponent, bgcolor, title, date, amount, type, amountColor }) => (
-              <ListItem
-                key={id}
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 3,
-                  '&:hover': {
-                    '& .title': {
-                      color: 'text.secondary',
-                    },
-                    '& .date': {
-                      color: 'neutral.main',
-                      transform: 'translateX(2px)',
-                    },
-                  },
-                }}
-                disablePadding
-              >
-                <Stack
-                  direction="row"
-                  sx={{
-                    width: 55,
-                    height: 55,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    bgcolor: bgcolor,
-                    borderRadius: '50%',
-                  }}
-                >
-                  <IconComponent sx={{ mb: 0.75 }} />
-                </Stack>
-                <Stack
-                  direction="row"
-                  sx={{
-                    flexGrow: 1,
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Stack gap={1}>
-                    <Typography
-                      className="title"
-                      sx={{
-                        color: 'primary.darker',
-                        fontSize: { xs: 'subtitle1.fontSize', md: 'body2.fontSize' },
-                      }}
-                    >
-                      {title}
-                    </Typography>
-                    <Typography
-                      className="date"
-                      sx={{
-                        color: 'primary.light',
-                        fontSize: {
-                          xs: 'caption.fontSize',
-                          sm: 'caption.fontSize',
-                          md: 'body1.fontSize',
-                        },
-                      }}
-                    >
-                      {date}
-                    </Typography>
-                  </Stack>
-                  <Typography
-                    sx={{
-                      color: amountColor,
-                      fontSize: {
-                        xs: 'caption.fontSize',
-                        sm: 'button.fontSize',
-                        md: 'body1.fontSize',
-                      },
-                    }}
-                  >
-                    {type === 'credit' ? '+' : '-'} {currencyFormat(amount)}
-                  </Typography>
-                </Stack>
-              </ListItem>
-            ),
-          )}
-        </List>
-      </Card>
-    </CardContainer>
+    <Fragment>
+      <Typography
+        variant="h5"
+        sx={{
+          fontWeight: 'bold',
+          mb: 3,
+          textAlign: 'left',
+        }}
+      >
+        Overview
+      </Typography>
+      <Stack
+        direction="row"
+        spacing={0}
+        justifyContent="left"
+        flexWrap="wrap"
+        sx={{
+          rowGap: 3,
+          columnGap: 2.5,
+          width: '100%',
+        }}
+      >
+        {cardData.map((card, index) => (
+          <Box
+            key={index}
+            sx={{
+              backgroundColor: card.backgroundColor,
+              padding: 3,
+              borderRadius: 2,
+              boxShadow: '#A0CCD6',
+              minWidth: 200,
+              textAlign: 'center',
+              flex: '1 1 220px', // Membuat card responsif dengan lebar minimum
+              maxWidth: 'calc(33.333% - 16px)', // Tiga card per baris pada layar besar
+            }}
+          >
+            <Typography variant="subtitle1" sx={{ fontWeight: 'medium' }}>
+              {card.title}
+            </Typography>
+            <Typography variant="h4" sx={{ fontWeight: 'bold', mt: 2 }}>
+              {card.value}
+            </Typography>
+            <Typography variant="caption" sx={{ color: 'gray' }}>
+              {card.subtitle}
+            </Typography>
+          </Box>
+        ))}
+      </Stack>
+    </Fragment>
   );
 };
 
-export default RecentTransactions;
+export default DashboardCards;

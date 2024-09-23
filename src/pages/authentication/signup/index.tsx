@@ -42,7 +42,7 @@ const SignupPage: React.FC = () => {
       <Grid
         container
         sx={{
-          flex: { xs: 1, md: 0.6 }, // Reduce width for illustration on larger screens
+          flex: { xs: 1, md: 0.6 },
           alignItems: 'center',
           justifyContent: 'center',
           paddingLeft: { xs: '10px', md: '20px' },
@@ -59,7 +59,7 @@ const SignupPage: React.FC = () => {
               fontWeight: 'bold',
               fontSize: FONT_SIZES.header,
               color: COLORS.textPrimary,
-              wordWrap: 'break-word', // Ensure text doesn't overflow
+              wordWrap: 'break-word',
             }}
           >
             Sign in to
@@ -120,9 +120,9 @@ const SignupPage: React.FC = () => {
             src={IconKey}
             alt="icon-key"
             style={{
-              maxWidth: '400%',
-              height: 'auto', // Maintain aspect ratio
-              objectFit: 'contain', // Contain within the available space
+              maxWidth: '200%',
+              height: 'auto',
+              objectFit: 'contain',
             }}
           />
         </Grid>
@@ -132,7 +132,7 @@ const SignupPage: React.FC = () => {
       <Grid
         container
         sx={{
-          flex: { xs: 1, md: 1.4 }, // Give more space for the form on larger screens
+          flex: { xs: 1, md: 1.4 },
           alignItems: 'center',
           justifyContent: 'center',
           padding: { xs: '20px', md: '50px' },

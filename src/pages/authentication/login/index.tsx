@@ -31,10 +31,10 @@ const LoginPage: React.FC = () => {
   return (
     <Box
       sx={{
-        width: 1,
+        width: '100vw',
         minHeight: '100vh',
         display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
+        flexDirection: { xs: 'row', md: 'row' },
         background: 'linear-gradient(to bottom, #9AFEE0 50%, #042BF9 100%)',
       }}
     >
@@ -42,7 +42,7 @@ const LoginPage: React.FC = () => {
       <Grid
         container
         sx={{
-          flex: { xs: 1, md: 0.6 }, // Reduce width for illustration on larger screens
+          flex: { xs: 1, md: 0.7 }, // Reduce width for illustration on larger screens
           alignItems: 'center',
           justifyContent: 'center',
           paddingLeft: { xs: '10px', md: '20px' },
@@ -120,7 +120,7 @@ const LoginPage: React.FC = () => {
             src={IconKey}
             alt="icon-key"
             style={{
-              maxWidth: '400%',
+              maxWidth: '200%',
               height: 'auto', // Maintain aspect ratio
               objectFit: 'contain', // Contain within the available space
             }}
@@ -144,7 +144,7 @@ const LoginPage: React.FC = () => {
             {/* Set a max-width for the container */}
             <Card
               sx={{
-                p: { xs: 3, sm: 5 },
+                p: { xs: 2, sm: 5 },
                 width: 1,
               }}
             >

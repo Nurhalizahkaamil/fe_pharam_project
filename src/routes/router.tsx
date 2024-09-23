@@ -89,7 +89,7 @@ export const routes = [
 ];
 
 const router = createBrowserRouter(routes, {
-  basename: '/inventory system',
+  basename: '/inventory',
 });
 
 export default router;

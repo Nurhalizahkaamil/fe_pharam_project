@@ -10,11 +10,11 @@ const MyCards = () => {
       {/* Card untuk teks sapaan */}
       <Card
         sx={{
-          background: 'linear-gradient(90deg, #4facfe 0%, #00f2fe 100%)',
+          background: 'linear-gradient(90deg, #08B6AB 18%, #08B6AB 61%, #156984 100%)',
           borderRadius: '10px',
           color: 'white',
-          mb: 3,
-          mt: 9,
+          mb: -3,
+          mt: 7,
           position: 'relative', // Menetapkan posisi relative agar gambar bisa di-absolute di sekitarnya
           width: { xs: '100%', md: '100%', lg: '100%' }, // Width responsif
           mx: 'auto', // Untuk membuat card berada di tengah secara horizontal
@@ -40,10 +40,10 @@ const MyCards = () => {
           alt="Dashboard Illustration"
           sx={{
             position: 'absolute',
-            top: '45%', // Posisi vertikal gambar
+            top: '35%', // Posisi vertikal gambar
             right: '-50px', // Gambar berada di luar card secara horizontal
             transform: 'translateY(-50%)', // Untuk memastikan gambar berada di tengah secara vertikal
-            width: { xs: '150px', md: '200px', lg: '300px' }, // Responsif berdasarkan ukuran layar
+            width: { xs: '250px', md: '200px', lg: '325px' }, // Responsif berdasarkan ukuran layar
             height: 'auto',
             opacity: 0.9,
           }}

@@ -10,7 +10,7 @@ declare module '@mui/material' {
 
 const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
   styleOverrides: {
-    root: ({ theme }) => ({
+    root: ({ theme }: { theme: Theme }) => ({
       ...theme.typography.button,
       '&.Mui-disabled': {
         backgroundColor: theme.palette.action.disabled,
@@ -21,26 +21,26 @@ const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
         boxShadow: theme.shadows[5],
       },
     }),
-    text: ({ theme }) => ({
+    text: ({ theme }: { theme: Theme }) => ({
       backgroundColor: 'transparent',
       '&:hover': {
         backgroundColor: 'transparent',
         boxShadow: theme.shadows[0],
       },
     }),
-    outlined: ({ theme }) => ({
+    outlined: ({ theme }: { theme: Theme }) => ({
       ...theme.typography.caption,
       fontWeight: theme.typography.fontWeightMedium,
       paddingTop: theme.spacing(1),
       paddingBottom: theme.spacing(1),
       borderRadius: theme.shape.borderRadius * 12.5,
     }),
-    textPrimary: ({ theme }) => ({
+    textPrimary: ({ theme }: { theme: Theme }) => ({
       '&.Mui-disabled': {
         color: theme.palette.action.disabled,
       },
     }),
-    outlinedPrimary: ({ theme }) => ({
+    outlinedPrimary: ({ theme }: { theme: Theme }) => ({
       color: theme.palette.primary.darker,
       borderColor: theme.palette.primary.darker,
       '&:hover': {
@@ -52,13 +52,13 @@ const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
         color: theme.palette.action.disabled,
       },
     }),
-    sizeSmall: ({ theme }) => ({
+    sizeSmall: ({ theme }: { theme: Theme }) => ({
       ...theme.typography.button,
       lineHeight: 1.1,
       paddingLeft: pxToRem(8),
       paddingRight: pxToRem(8),
     }),
-    sizeMedium: ({ theme }) => ({
+    sizeMedium: ({ theme }: { theme: Theme }) => ({
       fontSize: theme.typography.pxToRem(15),
       lineHeight: 1.6,
       paddingTop: pxToRem(7),
@@ -66,7 +66,7 @@ const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       paddingLeft: pxToRem(14),
       paddingRight: pxToRem(14),
     }),
-    sizeLarge: ({ theme }) => ({
+    sizeLarge: ({ theme }: { theme: Theme }) => ({
       fontSize: theme.typography.pxToRem(18),
       lineHeight: 1.8,
       paddingLeft: theme.spacing(3),
